@@ -1,0 +1,2380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NEXOR PREDICTION PRO SIGNALS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Outfit:wght@400;500;600;700;800&family=Rajdhani:wght@600;700;800&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #080510;
+            --bg-dark-alt: #0d0818;
+            --bg-card: rgba(15, 10, 28, 0.8);
+            --bg-card-border: rgba(139, 92, 246, 0.22);
+            --purple-royal: #7c3aed;
+            --purple-accent: #8b5cf6;
+            --purple-dark: #3b0764;
+            --gold-main: #f59e0b;
+            --gold-bright: #ffd700;
+            --gold-light: #fef08a;
+            --gold-dark: #d97706;
+            --text-main: #f3f4f6;
+            --text-muted: #c4b5fd;
+            --text-sub: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: linear-gradient(180deg, #080510 0%, #0d0818 100%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+        }
+
+        /* Party Popper Canvas */
+        #party-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Telegram Credit */
+        .tg-credit {
+            position: fixed;
+            bottom: 12px;
+            right: 12px;
+            font-size: 11px;
+            color: rgba(245, 158, 11, 0.9);
+            text-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+            z-index: 1200;
+            background: rgba(15, 10, 28, 0.85);
+            padding: 6px 14px;
+            border-radius: 50px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .tg-credit span {
+            color: #ffd700;
+            text-shadow: 0 0 10px #ffd700;
+        }
+
+        /* ================= LOGIN PAGE ================= */
+        #login-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 30%, #150928, #05030a);
+            z-index: 1100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: rgba(18, 11, 34, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            border-radius: 28px;
+            padding: 38px 28px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(124, 58, 237, 0.15);
+            text-align: center;
+        }
+
+        .login-header {
+            font-family: 'Cinzel', 'Outfit', serif;
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+            color: #ffffff;
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+            text-transform: uppercase;
+        }
+
+        .login-sub {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .input-group {
+            width: 100%;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            color: var(--gold-light);
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 1.5px;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .input-group input {
+            padding: 14px 18px;
+            width: 100%;
+            background: rgba(10, 6, 20, 0.85);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            color: #fff;
+            border-radius: 50px;
+            font-size: 17px;
+            text-align: center;
+            outline: none;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .input-group input:focus {
+            border-color: #ffd700;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .login-btn {
+            padding: 15px;
+            background: linear-gradient(135deg, #7c3aed, #d97706);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 800;
+            border-radius: 50px;
+            font-size: 17px;
+            width: 100%;
+            cursor: pointer;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        /* ================= SETUP PAGE ================= */
+        #setup-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 30%, #150928, #05030a);
+            z-index: 1050;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .setup-container {
+            background: rgba(18, 11, 34, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            border-radius: 28px;
+            padding: 34px 28px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(124, 58, 237, 0.15);
+        }
+
+        .setup-header {
+            font-family: 'Cinzel', 'Outfit', serif;
+            font-size: 20px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #ffd700, #fef08a, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .setup-field {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .setup-field label {
+            display: block;
+            color: var(--gold-light);
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .setup-field input, .setup-field select {
+            padding: 13px;
+            width: 100%;
+            background: rgba(10, 6, 20, 0.85);
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            color: #fff;
+            border-radius: 50px;
+            font-size: 16px;
+            text-align: center;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .setup-field input:focus, .setup-field select:focus {
+            border-color: var(--gold-main);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .setup-btn {
+            padding: 16px;
+            background: linear-gradient(135deg, #7c3aed, #d97706);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 800;
+            border-radius: 50px;
+            font-size: 17px;
+            width: 100%;
+            cursor: pointer;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .setup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        /* ================= MAIN APP LAYOUT ================= */
+        #app {
+            display: none;
+            width: 100%;
+            max-width: 460px;
+            margin: 0 auto;
+            padding: 16px 14px 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* HEADER & TITLE */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px 0;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        .logo {
+            font-family: 'Cinzel', 'Outfit', serif;
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            color: #ffffff !important;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+            text-transform: uppercase;
+            text-align: center;
+            background: none !important;
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            width: auto !important;
+            height: auto !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            display: block !important;
+        }
+
+        .status {
+            display: none !important;
+        }
+
+        .status::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold-main);
+            box-shadow: 0 0 6px var(--gold-main);
+        }
+
+        /* STATS GRID */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .stat-card {
+            background: rgba(15, 10, 28, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 14px 8px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(139, 92, 246, 0.22);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .stat-card:hover {
+            border-color: rgba(245, 158, 11, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .stat-val {
+            font-size: 18px;
+            font-weight: 800;
+            color: #f3f4f6;
+            font-family: 'Roboto Mono', monospace;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .stat-lbl {
+            font-size: 10px;
+            color: var(--gold-main);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        /* MAIN LIVE BOX */
+        .live-box {
+            background: linear-gradient(160deg, rgba(24, 15, 45, 0.85), rgba(12, 7, 24, 0.9));
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 22px 16px;
+            border-radius: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(124, 58, 237, 0.12);
+            position: relative;
+        }
+
+        .issue-no {
+            font-family: 'Roboto Mono', monospace;
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            background: rgba(245, 158, 11, 0.1);
+            display: inline-block;
+            padding: 5px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .timer-countdown {
+            font-size: 38px;
+            font-weight: 800;
+            font-family: 'Roboto Mono', monospace;
+            color: #f3f4f6;
+            text-shadow: 0 0 15px rgba(139, 92, 246, 0.35);
+            margin-bottom: 14px;
+            letter-spacing: 2px;
+        }
+
+        /* LEVEL BADGES (L1-L6) - HIDDEN VISUALLY */
+        .logic-status {
+            display: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            height: 0 !important;
+            overflow: hidden !important;
+        }
+
+        .logic-badge {
+            padding: 6px 8px;
+            border-radius: 12px;
+            background: rgba(15, 10, 28, 0.8);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            font-weight: 700;
+            font-size: 11px;
+            font-family: 'Roboto Mono', monospace;
+            text-align: center;
+            color: #c4b5fd;
+        }
+
+        .logic1 { border-color: rgba(245, 158, 11, 0.4); color: #fef08a; background: rgba(245, 158, 11, 0.08); }
+        .logic2 { border-color: rgba(167, 139, 250, 0.4); color: #ddd6fe; background: rgba(167, 139, 250, 0.08); }
+        .logic3 { border-color: rgba(217, 119, 6, 0.4); color: #fbbf24; background: rgba(217, 119, 6, 0.08); }
+        .logic4 { border-color: rgba(139, 92, 246, 0.4); color: #c4b5fd; background: rgba(139, 92, 246, 0.08); }
+        .logic5 { border-color: rgba(245, 158, 11, 0.4); color: #fef08a; background: rgba(245, 158, 11, 0.08); }
+        .logic6 { border-color: rgba(167, 139, 250, 0.4); color: #ddd6fe; background: rgba(167, 139, 250, 0.08); }
+
+        /* PREDICTION CENTERPIECE */
+        .pred-result {
+            margin: 18px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        #pred-value {
+            font-size: 48px;
+            font-weight: 900;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 3px;
+            line-height: 1;
+            padding: 16px 38px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 200px;
+            background: linear-gradient(135deg, #ffd700 0%, #f59e0b 50%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border: 1.5px solid rgba(245, 158, 11, 0.4);
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.2), inset 0 0 15px rgba(124, 58, 237, 0.15);
+            background-color: rgba(30, 18, 56, 0.9);
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn {
+            background: rgba(30, 18, 56, 0.85);
+            border: 1.5px solid #f59e0b;
+            color: #fef08a;
+            font-size: 14px;
+            padding: 9px 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 800;
+            font-family: 'Rajdhani', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .copy-btn:hover {
+            background: rgba(245, 158, 11, 0.2);
+            border-color: #ffd700;
+            color: #fff;
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .copy-btn.copied {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: #10b981;
+            color: #fff;
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
+        }
+
+        /* BADGES BELOW PREDICTION */
+        .bet-badge {
+            background: rgba(10, 6, 20, 0.85);
+            padding: 7px 22px;
+            border-radius: 50px;
+            font-size: 17px;
+            color: #fff;
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            display: inline-block;
+            margin-top: 6px;
+            font-weight: 800;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .consensus-badge {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            border-radius: 50px;
+            padding: 6px 18px;
+            font-size: 12px;
+            display: inline-block;
+            margin-top: 10px;
+            color: #fef08a;
+            font-weight: 700;
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        /* ================= HISTORY PANEL ================= */
+        .history-panel {
+            background: rgba(15, 10, 28, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(139, 92, 246, 0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .panel-head {
+            padding: 14px 18px;
+            background: rgba(24, 15, 45, 0.9);
+            font-weight: 800;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 1px;
+            color: #ffd700;
+        }
+
+        .win-rate {
+            color: #34d399;
+            font-size: 13px;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            background: rgba(16, 185, 129, 0.12);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(16, 185, 129, 0.25);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            max-height: 420px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .table-container::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+
+        .table-container::-webkit-scrollbar-track {
+            background: rgba(10, 6, 20, 0.5);
+        }
+
+        .table-container::-webkit-scrollbar-thumb {
+            background: rgba(139, 92, 246, 0.3);
+            border-radius: 10px;
+        }
+
+        /* 3-COLUMN COMPACT HISTORY TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            min-width: 100%;
+            table-layout: fixed;
+        }
+
+        th {
+            text-align: center;
+            padding: 12px 8px;
+            background: rgba(10, 6, 20, 0.95);
+            color: var(--gold-main);
+            font-weight: 800;
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 1px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.25);
+            width: 33.33%;
+        }
+
+        td {
+            padding: 10px 8px;
+            text-align: center;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.08);
+            font-family: 'Roboto Mono', monospace;
+            font-size: 13px;
+            color: #e5e7eb;
+            width: 33.33%;
+        }
+
+        .per-col {
+            font-weight: 700;
+            color: #f3f4f6;
+        }
+
+        .res-col {
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            color: #ffd700;
+        }
+
+        .status-col {
+            font-weight: 900;
+            letter-spacing: 1px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .status-win {
+            color: #00e676 !important;
+            text-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+        }
+
+        .status-loss {
+            color: #ff3d00 !important;
+            text-shadow: 0 0 10px rgba(255, 61, 0, 0.5);
+        }
+
+        .status-wait {
+            color: #fef08a !important;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .win-row {
+            background: rgba(16, 185, 129, 0.06);
+        }
+
+        .loss-row {
+            background: rgba(239, 68, 68, 0.06);
+        }
+
+        /* ================= COPY TOAST ================= */
+        .copy-toast {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(18, 11, 34, 0.95);
+            border: 1.5px solid #f59e0b;
+            border-radius: 28px;
+            padding: 26px 36px;
+            z-index: 10000;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(245, 158, 11, 0.2);
+            animation: epicEntrance 0.4s ease;
+            text-align: center;
+            min-width: 280px;
+            max-width: 90vw;
+        }
+
+        @keyframes epicEntrance {
+            0% { opacity: 0; transform: translate(-50%, -45%) scale(0.85); }
+            100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        .toast-icon {
+            font-size: 40px;
+            margin-bottom: 6px;
+        }
+
+        .toast-title {
+            font-size: 22px;
+            font-weight: 900;
+            font-family: 'Cinzel', sans-serif;
+            background: linear-gradient(135deg, #ffd700, #fef08a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+        }
+
+        .toast-message {
+            font-size: 15px;
+            color: #fef08a;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .toast-sub {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 6px;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 480px) {
+            #app { padding: 12px 10px 40px; }
+            .logo { font-size: 17px; }
+            .status { font-size: 9.5px; padding: 4px 10px; }
+            .stat-val { font-size: 16px; }
+            #pred-value { font-size: 40px; padding: 14px 28px; min-width: 170px; }
+            .timer-countdown { font-size: 32px; }
+            .copy-btn { font-size: 13px; padding: 8px 18px; }
+            .bet-badge { font-size: 15px; padding: 5px 16px; }
+            .logic-badge { font-size: 9.5px; padding: 5px 4px; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="party-canvas"></canvas>
+
+    <div class="tg-credit">⚡ <span>@Avtarshing</span> ⚡</div>
+
+    <!-- LOGIN PAGE -->
+    <div id="login-page">
+        <div class="login-container">
+            <div class="login-header">NEXOR PREDICTION PRO SIGNALS</div>
+            <div class="login-sub">HEXA VOTING · 100 HISTORY</div>
+            <div class="input-group">
+                <label>⚡ ACCESS KEY ⚡</label>
+                <input type="password" id="access-key" placeholder="•••••" autocomplete="off">
+            </div>
+            <button class="login-btn" onclick="validateLogin()">ENTER</button>
+        </div>
+    </div>
+
+    <!-- SETUP PAGE -->
+    <div id="setup-page">
+        <div class="setup-container">
+            <div class="setup-header">⚙️ CONFIGURATION</div>
+            <div class="setup-field">
+                <label>💰 BALANCE (₹)</label>
+                <input type="number" id="setup-bal" value="1000" step="100" min="100">
+            </div>
+            <div class="setup-field">
+                <label>🎯 TARGET (₹)</label>
+                <input type="number" id="setup-target" value="2000" step="100" min="200">
+            </div>
+            <div class="setup-field">
+                <label>⚡ RISK MODE</label>
+                <select id="setup-mode">
+                    <option value="0.01">1% (Conservative)</option>
+                    <option value="0.02" selected>2% (Moderate)</option>
+                    <option value="0.03">3% (Aggressive)</option>
+                </select>
+            </div>
+            <button class="setup-btn" onclick="startBot()">🚀 START HEXA BOT</button>
+        </div>
+    </div>
+
+    <!-- MAIN BOT UI -->
+    <div id="app">
+        <div class="header">
+            <div class="logo">NEXOR PREDICTION PRO SIGNALS</div>
+            <div id="status-txt" class="status">⦿ VOTING ACTIVE</div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card"><div class="stat-val">₹<span id="bal-display">0</span></div><div class="stat-lbl">Balance</div></div>
+            <div class="stat-card"><div class="stat-val" id="target-display">₹0</div><div class="stat-lbl">Target</div></div>
+            <div class="stat-card"><div class="stat-val" id="profit-display">₹0</div><div class="stat-lbl">Profit</div></div>
+        </div>
+
+        <div class="live-box">
+            <div class="issue-no" id="next-issue">#PERIOD</div>
+            <div class="timer-countdown" id="timer-display">00:00</div>
+            <div class="logic-status" id="logic-badges" style="display: none !important;">
+                <span class="logic-badge logic1" id="logic1-display">L1: --</span>
+                <span class="logic-badge logic2" id="logic2-display">L2: --</span>
+                <span class="logic-badge logic3" id="logic3-display">L3: --</span>
+                <span class="logic-badge logic4" id="logic4-display">L4: --</span>
+                <span class="logic-badge logic5" id="logic5-display">L5: --</span>
+                <span class="logic-badge logic6" id="logic6-display">L6: --</span>
+            </div>
+            <div class="pred-result" id="pred-text">
+                <span id="pred-value">--</span>
+                <button class="copy-btn" id="copyPredBtn" onclick="copyPrediction()">
+                    <span>📋</span> COPY
+                </button>
+            </div>
+            <div class="bet-badge">₹<span id="next-bet">0</span></div>
+            <div class="consensus-badge" id="consensus-display">⚡ VOTE: --/6</div>
+        </div>
+
+        <div class="history-panel">
+            <div class="panel-head">
+                <span>📊 HEXA HISTORY (LAST 100)</span>
+                <span class="win-rate" id="winrate-display">0% (0/0)</span>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>PERIOD</th>
+                            <th>RESULT</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ==================== CONFIG ====================
+            const API_URL = "https://draw.ar-lottery01.com/WinGo/WinGo_1M/GetHistoryIssuePage.json";
+            const MAX_HISTORY = 100;
+
+            // ==================== STATE ====================
+            const state = {
+                active: false,
+                balance: 0,
+                startBalance: 0,
+                targetBalance: 0,
+                baseBet: 10,
+                currentBet: 10,
+                riskMultiplier: 0.02,
+                pendingBet: null,
+                consecutiveLosses: 0,
+                stats: { wins: 0, losses: 0, total: 0 },
+                lastApiList: []
+            };
+
+            // Timer
+            let secondsLeft = 60;
+            let timerInterval = null;
+            let fastLoopInterval = null;
+
+            // ==================== PARTY POPPER ====================
+            const canvas = document.getElementById('party-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            function createParticles() {
+                for (let i = 0; i < 70; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height * 0.4 + canvas.height * 0.2,
+                        vx: (Math.random() - 0.5) * 12,
+                        vy: Math.random() * -12 - 6,
+                        size: Math.random() * 8 + 4,
+                        color: `hsl(${Math.random() * 40 + 35}, 100%, 60%)`,
+                        life: 1
+                    });
+                }
+            }
+
+            function drawParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    const p = particles[i];
+                    ctx.globalAlpha = p.life;
+                    ctx.fillStyle = p.color;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vy += 0.2;
+                    p.life -= 0.01;
+                    
+                    if (p.life <= 0 || p.y > canvas.height) {
+                        particles.splice(i, 1);
+                    }
+                }
+                if (particles.length > 0) {
+                    requestAnimationFrame(drawParticles);
+                } else {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            }
+
+            function partyPopper() {
+                createParticles();
+                drawParticles();
+            }
+
+            // ==================== ULTRA STYLISH COPY FUNCTION ====================
+            window.copyPrediction = function() {
+                const predEl = document.getElementById('pred-value');
+                const pred = predEl.innerText;
+                if (pred === '--') return;
+                
+                const period = document.getElementById('next-issue').innerText.replace('PERIOD: ', '');
+                const bet = document.getElementById('next-bet').innerText;
+                
+                // 🎨 ELEGANT MASTERPIECE 🎨
+                const text = `
+╔══════════════════════════════════════════╗
+║  ✨👑 NEXOR PREDICTION PRO · ${period} 👑✨  ║
+╠══════════════════════════════════════════╣
+║  🎯  𝐏𝐑𝐄𝐃𝐈𝐂𝐓𝐈𝐎𝐍 :  ${pred} ${pred === 'BIG' ? '🟡✨🔥' : '🟣💎❄️'}     ║
+║  💰  𝐁𝐄𝐓 𝐀𝐌𝐎𝐔𝐍𝐓 :  ₹${bet}  🪙💰💸         ║
+║  ⚡  𝐂𝐑𝐄𝐀𝐓𝐎𝐑    : @Avtarshing ⚡      ║
+╠══════════════════════════════════════════╣
+║  🎉✨🎊  𝐂𝐎𝐏𝐘 𝐒𝐔𝐂𝐂𝐄𝐒𝐒𝐅𝐔𝐋 !  🎊✨🎉      ║
+║     🚀  𝐒𝐇𝐀𝐑𝐄  𝐓𝐇𝐄  𝐖𝐈𝐍  🚀            ║
+╚══════════════════════════════════════════╝
+       ✨🌟  GOOD LUCK  🌟✨`.replace(/^ +/gm, '');
+                
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        showEpicCopyToast();
+                    }).catch(() => {
+                        fallbackCopy(text);
+                    });
+                } else {
+                    fallbackCopy(text);
+                }
+            };
+
+            function fallbackCopy(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    showEpicCopyToast();
+                } catch (err) {
+                    alert('Copy failed, but here is your prediction:\n\n' + text);
+                }
+                document.body.removeChild(textarea);
+            }
+
+            function showEpicCopyToast() {
+                const btn = document.getElementById('copyPredBtn');
+                const originalHTML = btn.innerHTML;
+                
+                btn.innerHTML = '<span>✅</span> COPIED!';
+                btn.classList.add('copied');
+                
+                const toast = document.createElement('div');
+                toast.className = 'copy-toast';
+                toast.innerHTML = `
+                    <div class="toast-icon">👑✨📋✨👑</div>
+                    <div class="toast-title">COPY SUCCESS!</div>
+                    <div class="toast-message">PREDICTION CAPTURED</div>
+                    <div class="toast-sub">⚡ @Avtarshing ⚡</div>
+                `;
+                document.body.appendChild(toast);
+                
+                for (let i = 0; i < 2; i++) {
+                    setTimeout(() => partyPopper(), i * 150);
+                }
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.classList.remove('copied');
+                    toast.style.animation = 'epicEntrance 0.3s reverse';
+                    setTimeout(() => toast.remove(), 300);
+                }, 2500);
+            }
+
+            // ==================== LOGIN ====================
+            window.validateLogin = function() {
+                const key = document.getElementById('access-key').value.trim();
+                if (key.toUpperCase() === 'NEXOR2026') {
+                    document.getElementById('login-page').style.display = 'none';
+                    document.getElementById('setup-page').style.display = 'flex';
+                } else {
+                    alert('❌ Invalid Key');
+                }
+            };
+
+            // ==================== TIMER ====================
+            function updateTimerDisplay() {
+                const el = document.getElementById('timer-display');
+                if (!el) return;
+                const secs = Math.max(0, secondsLeft);
+                el.innerText = `00:${secs < 10 ? '0' + secs : secs}`;
+                if (secs <= 5) el.style.color = '#ef4444';
+                else if (secs <= 15) el.style.color = '#f59e0b';
+                else el.style.color = '#f3f4f6';
+            }
+
+            function resetTimerFromAPI() {
+                const now = new Date();
+                const seconds = now.getSeconds();
+                secondsLeft = 60 - seconds;
+                if (secondsLeft === 60) secondsLeft = 0;
+                updateTimerDisplay();
+            }
+
+            function startTimer() {
+                if (timerInterval) clearInterval(timerInterval);
+                resetTimerFromAPI();
+                timerInterval = setInterval(() => {
+                    if (secondsLeft > 0) secondsLeft--;
+                    else secondsLeft = 59;
+                    updateTimerDisplay();
+                }, 1000);
+            }
+
+            // ==================== ENHANCED LOGIC 1 ====================
+            function logic1(results) {
+                if (!results || results.length < 10) return "BIG";
+                const n1 = parseInt(results[0].number), n2 = parseInt(results[1].number);
+                const n9 = parseInt(results[8].number), n10 = parseInt(results[9].number);
+                let total = (n1 - n2) + (n9 - n10);
+                total = Math.abs(total) % 10;
+                
+                let bigCount = 0;
+                for (let i = 0; i < 5; i++) if (parseInt(results[i].number) >= 5) bigCount++;
+                if (bigCount >= 4) return total >= 4 ? "BIG" : "SMALL";
+                if (bigCount <= 1) return total >= 6 ? "BIG" : "SMALL";
+                
+                return total >= 5 ? "BIG" : "SMALL";
+            }
+
+            // ==================== ENHANCED LOGIC 2 ====================
+            function logic2(results) {
+                if (!results || results.length < 5) return "BIG";
+                let sum = 0;
+                const weights = [3, 2, 1, 1, 1];
+                for (let i = 0; i < 5; i++) {
+                    sum += parseInt(results[i].number) * weights[i];
+                }
+                sum += parseInt(results[0].number) * 2;
+                return (sum % 10) >= 5 ? "BIG" : "SMALL";
+            }
+
+            // ==================== ENHANCED LOGIC 3 ====================
+            function logic3(results) {
+                if (!results || results.length < 12) return "BIG";
+                const nums = [], sizes = [];
+                for (let i = 0; i < 12; i++) {
+                    if (!results[i]) break;
+                    const num = parseInt(results[i].number);
+                    nums.push(num);
+                    sizes.push(num >= 5 ? "BIG" : "SMALL");
+                }
+                
+                let volatility = 0;
+                for (let i = 0; i < 5; i++) {
+                    volatility += Math.abs(nums[i] - (nums[i+1] || nums[i]));
+                }
+                volatility = volatility / 5;
+                
+                let streak = 1;
+                for (let i = 1; i < 5; i++) if (sizes[i] === sizes[0]) streak++; else break;
+                let streakScore = streak >= 3 ? -25 : (streak === 2 ? -15 : (volatility > 3 ? 10 : 5));
+                
+                let bigCnt = 0; for (let i = 0; i < 8; i++) if (sizes[i] === "BIG") bigCnt++;
+                let imbalance = ((bigCnt - (8 - bigCnt)) / 8) * 100;
+                
+                let pattern = 0;
+                if (sizes[0] === sizes[1] && sizes[1] === sizes[2]) pattern = -35;
+                else if (sizes[0] === sizes[1]) pattern = -20;
+                else if (sizes[0] !== sizes[1] && sizes[1] === sizes[2]) pattern = 25;
+                else pattern = 10;
+                
+                let avg = (nums[0] + nums[1] + nums[2] + nums[3] + nums[4]) / 5;
+                let value = avg >= 6 ? 20 : (avg <= 3 ? -20 : (avg >= 5 ? 5 : -5));
+                
+                let totalBig = sizes.filter(s => s === "BIG").length;
+                let revert = totalBig > 7 ? -30 : (totalBig < 4 ? 30 : 0);
+                
+                let total = (streakScore * 0.2) + (imbalance * 0.25) + (pattern * 0.2) + (value * 0.2) + (revert * 0.15);
+                let pred = total >= 0 ? "BIG" : "SMALL";
+                
+                if (Math.abs(total) < 20) {
+                    let last3 = (sizes[0] === "BIG" ? 1 : 0) + (sizes[1] === "BIG" ? 1 : 0) + (sizes[2] === "BIG" ? 1 : 0);
+                    pred = last3 >= 2 ? "BIG" : "SMALL";
+                }
+                return pred;
+            }
+
+            // ==================== ENHANCED LOGIC 4 ====================
+            function logic4(results) {
+                if (!results || results.length < 6) return "BIG";
+                const last6 = [];
+                for (let i = 0; i < 6; i++) {
+                    if (!results[i]) break;
+                    last6.push({ num: parseInt(results[i].number), size: parseInt(results[i].number) >= 5 ? "BIG" : "SMALL" });
+                }
+                
+                let gap = Math.abs(last6[0].num - (last6[1]?.num || last6[0].num));
+                
+                let streak = 1;
+                for (let i = 1; i < last6.length; i++) if (last6[i].size === last6[0].size) streak++; else break;
+                
+                if (streak >= 3) {
+                    if (gap > 4) return last6[0].size;
+                    return last6[0].size === "BIG" ? "SMALL" : "BIG";
+                }
+                
+                let changes = 0;
+                for (let i = 0; i < last6.length - 1; i++) if (last6[i].size !== last6[i+1].size) changes++;
+                
+                if (changes >= 4) return last6[0].size;
+                if (changes <= 1 && last6.length >= 4) return last6[0].size === "BIG" ? "SMALL" : "BIG";
+                
+                if (last6[0].size === last6[1].size) return last6[0].size === "BIG" ? "SMALL" : "BIG";
+                return last6[0].size;
+            }
+
+            // ==================== ENHANCED LOGIC 5 ====================
+            function logic5(results) {
+                if (!results || results.length < 7) return "BIG";
+                let even = 0, odd = 0, sum = 0, lastThree = 0;
+                for (let i = 0; i < 7; i++) {
+                    const n = parseInt(results[i].number);
+                    sum += n;
+                    if (i < 3) lastThree += n;
+                    if (n % 2 === 0) even++; else odd++;
+                }
+                
+                if (even >= 5) {
+                    let digit = (sum + lastThree) % 10;
+                    return digit >= 5 ? "BIG" : "SMALL";
+                }
+                if (odd >= 5) {
+                    let digit = (sum - lastThree) % 10;
+                    if (digit < 0) digit += 10;
+                    return digit >= 5 ? "SMALL" : "BIG";
+                }
+                
+                return parseInt(results[0].number) % 2 === 0 ? "SMALL" : "BIG";
+            }
+
+            // ==================== ENHANCED LOGIC 6 ====================
+            function logic6(results) {
+                if (!results || results.length < 8) return "BIG";
+                let momentum = 0, acceleration = 0;
+                for (let i = 0; i < 5; i++) {
+                    const diff = parseInt(results[i].number) - parseInt(results[i+1].number);
+                    momentum += diff;
+                    if (i < 4) acceleration += (diff - (parseInt(results[i+1].number) - parseInt(results[i+2].number)));
+                }
+                momentum = Math.abs(momentum) % 10;
+                acceleration = Math.abs(acceleration) % 5;
+                
+                const lastTwoSame = (parseInt(results[0].number) >= 5) === (parseInt(results[1].number) >= 5);
+                
+                if (lastTwoSame) {
+                    if (momentum + acceleration > 8) return parseInt(results[0].number) >= 5 ? "SMALL" : "BIG";
+                    return parseInt(results[0].number) >= 5 ? "BIG" : "SMALL";
+                } else {
+                    if (momentum > 5) return parseInt(results[0].number) >= 5 ? "BIG" : "SMALL";
+                    return parseInt(results[1].number) >= 5 ? "BIG" : "SMALL";
+                }
+            }
+
+            // ==================== VOTING ====================
+            function getVote(results) {
+                const l1 = logic1(results), l2 = logic2(results), l3 = logic3(results);
+                const l4 = logic4(results), l5 = logic5(results), l6 = logic6(results);
+
+                document.getElementById('logic1-display').innerText = `L1: ${l1}`;
+                document.getElementById('logic2-display').innerText = `L2: ${l2}`;
+                document.getElementById('logic3-display').innerText = `L3: ${l3}`;
+                document.getElementById('logic4-display').innerText = `L4: ${l4}`;
+                document.getElementById('logic5-display').innerText = `L5: ${l5}`;
+                document.getElementById('logic6-display').innerText = `L6: ${l6}`;
+
+                const votes = { BIG: 0, SMALL: 0 };
+                votes[l1]++; votes[l2]++; votes[l3]++; votes[l4]++; votes[l5]++; votes[l6]++;
+
+                let final, msg;
+                if (votes.BIG > votes.SMALL) {
+                    final = "BIG";
+                    msg = `⚡ VOTE: ${votes.BIG}/6 MATCH`;
+                } else if (votes.SMALL > votes.BIG) {
+                    final = "SMALL";
+                    msg = `⚡ VOTE: ${votes.SMALL}/6 MATCH`;
+                } else {
+                    final = l1;
+                    msg = `⚡ VOTE: TIE → L1`;
+                }
+                document.getElementById('consensus-display').innerText = msg;
+                return { final, l1, l2, l3, l4, l5, l6 };
+            }
+
+            // ==================== UI UPDATES ====================
+            function updateDisplay() {
+                document.getElementById('bal-display').innerText = Math.floor(state.balance);
+                document.getElementById('target-display').innerText = Math.floor(state.targetBalance);
+                const p = state.balance - state.startBalance;
+                document.getElementById('profit-display').innerText = (p >= 0 ? '+' : '') + p.toFixed(0);
+                document.getElementById('profit-display').style.color = p >= 0 ? '#34d399' : '#f87171';
+                const wr = state.stats.total ? ((state.stats.wins / state.stats.total) * 100).toFixed(1) : '0';
+                document.getElementById('winrate-display').innerText = `${wr}% (${state.stats.wins}/${state.stats.total})`;
+            }
+
+            function addHistoryRow(issue, data) {
+                const tbody = document.getElementById('history-body');
+                const row = document.createElement('tr');
+                row.id = `row-${issue}`;
+                row.innerHTML = `
+                    <td class="per-col">${issue.slice(-5)}</td>
+                    <td class="res-col">${data.pick}</td>
+                    <td class="status-col status-wait">WAIT...</td>
+                `;
+                tbody.prepend(row);
+                while (tbody.children.length > MAX_HISTORY) tbody.removeChild(tbody.lastChild);
+            }
+
+            function updateHistoryRow(issue, res, bal, cls, actual) {
+                const row = document.getElementById(`row-${issue}`);
+                if (row) {
+                    row.className = cls;
+                    const resTd = row.querySelector('.res-col');
+                    const statusTd = row.querySelector('.status-col');
+                    if (resTd && actual) {
+                        resTd.innerText = actual;
+                    }
+                    if (statusTd) {
+                        if (cls === 'win-row') {
+                            statusTd.innerText = 'WIN';
+                            statusTd.className = 'status-col status-win';
+                        } else if (cls === 'loss-row') {
+                            statusTd.innerText = 'LOSS';
+                            statusTd.className = 'status-col status-loss';
+                        }
+                    }
+                }
+            }
+
+            // ==================== PROCESS RESULT ====================
+            function processResult(data) {
+                if (!state.pendingBet) return;
+                const num = parseInt(data.number);
+                const actual = num >= 5 ? "BIG" : "SMALL";
+                const won = state.pendingBet.pick === actual;
+                const profit = state.pendingBet.amount * 0.96;
+
+                state.stats.total++;
+                if (won) {
+                    state.stats.wins++;
+                    state.balance += profit;
+                    state.currentBet = state.baseBet;
+                    state.consecutiveLosses = 0;
+                    updateHistoryRow(state.pendingBet.issue, `WIN +${profit.toFixed(0)}`, state.balance, 'win-row', actual);
+                    partyPopper();
+                } else {
+                    state.stats.losses++;
+                    state.balance -= state.pendingBet.amount;
+                    state.consecutiveLosses++;
+                    const multiplier = Math.pow(3, state.consecutiveLosses);
+                    let raw = state.baseBet * multiplier;
+                    if (raw > state.balance * 0.8) raw = Math.min(raw, Math.floor(state.balance * 0.8));
+                    state.currentBet = Math.max(state.baseBet, raw);
+                    updateHistoryRow(state.pendingBet.issue, `LOSS -${state.pendingBet.amount}`, state.balance, 'loss-row', actual);
+                }
+                state.pendingBet = null;
+                updateDisplay();
+            }
+
+            // ==================== MAIN LOOP ====================
+            async function mainLoop() {
+                if (!state.active) return;
+                try {
+                    const res = await fetch(`${API_URL}?t=${Date.now()}`);
+                    const json = await res.json();
+                    const list = json.data.list;
+                    if (!list || !list.length) return;
+
+                    state.lastApiList = list;
+                    const latest = list[0];
+                    const latestIssue = latest.issueNumber;
+
+                    resetTimerFromAPI();
+
+                    if (state.pendingBet && state.pendingBet.issue === latestIssue) {
+                        processResult(latest);
+                    }
+
+                    if (state.balance >= state.targetBalance) {
+                        state.active = false;
+                        clearInterval(timerInterval);
+                        clearInterval(fastLoopInterval);
+                        alert('🎯 TARGET ACHIEVED!');
+                        return;
+                    }
+
+                    const nextIssue = (BigInt(latestIssue) + 1n).toString();
+                    if (!state.pendingBet || state.pendingBet.issue !== nextIssue) {
+                        const vote = getVote(list);
+                        const betAmount = Math.min(state.currentBet, Math.floor(state.balance * 0.8));
+
+                        state.pendingBet = {
+                            issue: nextIssue,
+                            pick: vote.final,
+                            amount: betAmount,
+                            l1: vote.l1, l2: vote.l2, l3: vote.l3,
+                            l4: vote.l4, l5: vote.l5, l6: vote.l6
+                        };
+
+                        document.getElementById('next-issue').innerText = `PERIOD: ${nextIssue.slice(-5)}`;
+                        document.getElementById('pred-value').innerText = vote.final;
+                        document.getElementById('pred-text').className = `pred-result ${vote.final.toLowerCase()}`;
+                        document.getElementById('next-bet').innerText = betAmount;
+
+                        addHistoryRow(nextIssue, state.pendingBet);
+                    }
+                } catch (e) {
+                    console.warn('Loop error', e);
+                }
+            }
+
+            // ==================== START ====================
+            window.startBot = function() {
+                const bal = parseFloat(document.getElementById('setup-bal').value);
+                const tgt = parseFloat(document.getElementById('setup-target').value);
+                const mode = parseFloat(document.getElementById('setup-mode').value);
+
+                if (isNaN(bal) || isNaN(tgt) || bal <= 0 || tgt <= bal) {
+                    alert('❌ Balance must be >0 and Target > Balance');
+                    return;
+                }
+
+                state.balance = bal;
+                state.startBalance = bal;
+                state.targetBalance = tgt;
+                state.riskMultiplier = mode;
+                state.baseBet = Math.max(10, Math.floor(bal * mode));
+                state.currentBet = state.baseBet;
+                state.consecutiveLosses = 0;
+                state.stats = { wins: 0, losses: 0, total: 0 };
+                state.pendingBet = null;
+
+                document.getElementById('setup-page').style.display = 'none';
+                document.getElementById('app').style.display = 'block';
+
+                updateDisplay();
+                startTimer();
+                state.active = true;
+                mainLoop();
+                fastLoopInterval = setInterval(mainLoop, 2000);
+            };
+
+            window.onbeforeunload = function() {
+                if (timerInterval) clearInterval(timerInterval);
+                if (fastLoopInterval) clearInterval(fastLoopInterval);
+            };
+        })();
+    </script><script>
+(function () {
+    "use strict";
+
+    /* =====================================================
+       REMOTE POPUP INJECTOR
+       Firebase Project: poup-real-time
+       ===================================================== */
+
+    const FIREBASE_CONFIG = {
+        apiKey: "AIzaSyAI3z1Cu-bmwwSgf5eVO3wpQ3PKqGCxDZc",
+        authDomain: "poup-real-time.firebaseapp.com",
+        databaseURL: "https://poup-real-time-default-rtdb.firebaseio.com",
+        projectId: "poup-real-time",
+        storageBucket: "poup-real-time.firebasestorage.app",
+        messagingSenderId: "47044726694",
+        appId: "1:47044726694:web:4d24b6c479a709ef46c967"
+    };
+
+    const FIREBASE_APP =
+        "https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js";
+
+    const FIREBASE_DB =
+        "https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js";
+
+    let popupTimer = null;
+    let popupShown = false;
+
+    function loadScript(url) {
+        return new Promise(function(resolve, reject) {
+            const script = document.createElement("script");
+
+            script.src = url;
+            script.async = true;
+
+            script.onload = resolve;
+            script.onerror = reject;
+
+            document.head.appendChild(script);
+        });
+    }
+
+    async function start() {
+        try {
+
+            if (!window.firebase) {
+                await loadScript(FIREBASE_APP);
+                await loadScript(FIREBASE_DB);
+            }
+
+            if (!firebase.apps.length) {
+                firebase.initializeApp(FIREBASE_CONFIG);
+            }
+
+            const database = firebase.database();
+
+            database.ref("remotePopup").on(
+                "value",
+                function(snapshot) {
+
+                    const data = snapshot.val();
+
+                    if (!data || data.enabled !== true) {
+                        removePopup();
+                        return;
+                    }
+
+                    showPopup(data);
+                },
+                function(error) {
+                    console.error(
+                        "Remote popup Firebase error:",
+                        error
+                    );
+                }
+            );
+
+        } catch (error) {
+
+            /*
+             * Firebase fail hone par main app ko
+             * block nahi karna hai.
+             */
+            console.error(
+                "Remote popup failed:",
+                error
+            );
+        }
+    }
+
+    function showPopup(data) {
+
+        /*
+         * Agar popup already current page par visible hai,
+         * unnecessarily dobara create nahi karenge.
+         */
+        if (document.getElementById("rp-remote-overlay")) {
+            return;
+        }
+
+        popupShown = true;
+
+        const duration =
+            Math.max(
+                1,
+                parseInt(data.duration, 10) || 20
+            );
+
+        const title =
+            escapeHTML(
+                data.title || "Official Channel"
+            );
+
+        const message =
+            escapeHTML(
+                data.message ||
+                "Join our official channel for latest updates."
+            );
+
+        const joinUrl =
+            String(data.joinUrl || "").trim();
+
+        if (!joinUrl) {
+            return;
+        }
+
+        const overlay =
+            document.createElement("div");
+
+        overlay.id = "rp-remote-overlay";
+
+        overlay.innerHTML = `
+            <div class="rp-popup-card">
+
+                <div class="rp-popup-icon">
+                    📢
+                </div>
+
+                <div class="rp-popup-title">
+                    ${title}
+                </div>
+
+                <div class="rp-popup-message">
+                    ${message}
+                </div>
+
+                <div class="rp-popup-count">
+                    Auto close in
+                    <strong id="rp-count">
+                        ${duration}
+                    </strong>s
+                </div>
+
+                <button
+                    id="rp-join-btn"
+                    type="button">
+                    JOIN OFFICIAL CHANNEL
+                </button>
+
+                <button
+                    id="rp-close-btn"
+                    type="button">
+                    CLOSE
+                </button>
+
+            </div>
+        `;
+
+        const style =
+            document.createElement("style");
+
+        style.id = "rp-remote-style";
+
+        style.textContent = `
+            #rp-remote-overlay {
+                position: fixed;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 2147483647;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                padding: 18px;
+
+                background:
+                    rgba(8, 5, 16, 0.82);
+
+                backdrop-filter:
+                    blur(12px);
+
+                -webkit-backdrop-filter:
+                    blur(12px);
+
+                font-family:
+                    'Outfit',
+                    Arial,
+                    sans-serif;
+
+                animation:
+                    rpFadeIn .25s ease;
+            }
+
+            .rp-popup-card {
+                width: 100%;
+                max-width: 360px;
+
+                padding: 26px 22px;
+
+                border-radius: 24px;
+
+                background: rgba(18, 11, 34, 0.95);
+                border: 1px solid rgba(245, 158, 11, 0.35);
+
+                color: #ffffff;
+
+                text-align: center;
+
+                box-shadow:
+                    0 20px 60px
+                    rgba(0, 0, 0, 0.8);
+
+                animation:
+                    rpPopupIn .3s
+                    cubic-bezier(.2,.8,.2,1);
+            }
+
+            .rp-popup-icon {
+                width: 60px;
+                height: 60px;
+
+                margin:
+                    0 auto 15px;
+
+                border-radius: 50%;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                background:
+                    rgba(245, 158, 11, 0.12);
+                border: 1px solid rgba(245, 158, 11, 0.3);
+
+                font-size: 26px;
+            }
+
+            .rp-popup-title {
+                font-size: 20px;
+                font-weight: 800;
+
+                margin-bottom: 9px;
+                color: #ffd700;
+                font-family: 'Cinzel', serif;
+            }
+
+            .rp-popup-message {
+                color: #c4b5fd;
+
+                font-size: 14px;
+
+                line-height: 1.5;
+
+                margin-bottom: 15px;
+            }
+
+            .rp-popup-count {
+                color: #9ca3af;
+
+                font-size: 12px;
+
+                margin-bottom: 16px;
+            }
+
+            .rp-popup-count strong {
+                color: #ffd700;
+                font-size: 14px;
+            }
+
+            #rp-join-btn {
+                width: 100%;
+
+                border: 1px solid rgba(255, 215, 0, 0.4);
+
+                border-radius: 50px;
+
+                padding: 14px;
+
+                background:
+                    linear-gradient(135deg, #7c3aed, #d97706);
+
+                color: #ffffff;
+
+                font-size: 13px;
+
+                font-weight: 800;
+
+                cursor: pointer;
+
+                margin-bottom: 9px;
+                box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            }
+
+            #rp-close-btn {
+                width: 100%;
+
+                border: 1px solid rgba(139, 92, 246, 0.25);
+
+                border-radius: 50px;
+
+                padding: 12px;
+
+                background:
+                    rgba(15, 10, 28, 0.8);
+
+                color: #c4b5fd;
+
+                font-size: 13px;
+
+                font-weight: 700;
+
+                cursor: pointer;
+            }
+
+            #rp-join-btn:active,
+            #rp-close-btn:active {
+                transform: scale(.98);
+            }
+
+            @keyframes rpFadeIn {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes rpPopupIn {
+                from {
+                    opacity: 0;
+                    transform:
+                        scale(.88)
+                        translateY(15px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform:
+                        scale(1)
+                        translateY(0);
+                }
+            }
+        `;
+
+        document.head.appendChild(style);
+        document.body.appendChild(overlay);
+
+        let remaining = duration;
+
+        popupTimer =
+            setInterval(function() {
+
+                remaining--;
+
+                const counter =
+                    document.getElementById(
+                        "rp-count"
+                    );
+
+                if (counter) {
+                    counter.textContent =
+                        remaining;
+                }
+
+                if (remaining <= 0) {
+                    clearInterval(popupTimer);
+                    popupTimer = null;
+
+                    removePopup();
+                }
+
+            }, 1000);
+
+
+        const joinButton =
+            document.getElementById(
+                "rp-join-btn"
+            );
+
+        if (joinButton) {
+
+            joinButton.onclick =
+                function() {
+
+                    /*
+                     * Click ke turant baad popup remove.
+                     */
+                    removePopup();
+
+                    /*
+                     * Link Firebase se aaya hai.
+                     */
+                    try {
+                        window.open(
+                            joinUrl,
+                            "_blank",
+                            "noopener,noreferrer"
+                        );
+                    } catch (e) {
+                        window.location.href =
+                            joinUrl;
+                    }
+                };
+        }
+
+
+        const closeButton =
+            document.getElementById(
+                "rp-close-btn"
+            );
+
+        if (closeButton) {
+
+            closeButton.onclick =
+                function() {
+                    removePopup();
+                };
+        }
+    }
+
+
+    function removePopup() {
+
+        if (popupTimer) {
+            clearInterval(popupTimer);
+            popupTimer = null;
+        }
+
+        const overlay =
+            document.getElementById(
+                "rp-remote-overlay"
+            );
+
+        if (overlay) {
+            overlay.remove();
+        }
+
+        const style =
+            document.getElementById(
+                "rp-remote-style"
+            );
+
+        if (style) {
+            style.remove();
+        }
+
+        popupShown = false;
+    }
+
+
+    function escapeHTML(value) {
+
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+
+    /*
+     * Page load par Firebase setting check.
+     *
+     * Har baar HTML fresh open hoga:
+     *
+     * enabled = true  → popup
+     * enabled = false → nothing
+     */
+
+    if (
+        document.readyState ===
+        "loading"
+    ) {
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            start
+        );
+
+    } else {
+
+        start();
+    }
+
+})();
+</script>
+</body><!-- ================= TOOLKIT SPLASH SCREEN ================= -->
+
+<div id="splash-screen">
+
+    <!-- Ambient Background -->
+    <div class="ambient-glow glow-one"></div>
+    <div class="ambient-glow glow-two"></div>
+    <div class="ambient-grid"></div>
+
+    <div class="splash-box">
+
+        <!-- Badge -->
+        <div class="badge-tag">
+            <span class="badge-dot"></span>
+            INJECTOR • LIVE ACCESS
+        </div>
+
+        <!-- Logo -->
+        <div class="logo-container">
+            <div class="logo-ring ring-one"></div>
+            <div class="logo-ring ring-two"></div>
+
+            <div class="splash-icon-inner">
+                ⚡
+            </div>
+        </div>
+
+        <!-- Heading -->
+        <h1>NEXOR PREDICTION PRO SIGNALS</h1>
+
+        <p>
+            Join official channels for accurate color predictions, VIP tools & fast updates.
+        </p>
+
+        <!-- Telegram Buttons (Luxury Palette) -->
+        <div class="btn-group">
+
+            <!-- Gold / Purple Style -->
+            <a
+                href="https://t.me/+MxhUoVr0_Z1iY2U1"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="join-btn rng-green"
+            >
+                <span class="btn-icon">👑</span>
+                <span class="btn-text-wrap">
+                    <span class="btn-main-title">REAL PREDICTION</span>
+                    <span class="btn-sub-title">VIP COLOR SIGNAL</span>
+                </span>
+                <span class="btn-arrow">↗</span>
+                <div class="btn-shine"></div>
+            </a>
+
+            <!-- Royal Violet Style -->
+            <a
+                href="https://t.me/+734fE7ZZrdhjNmM1"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="join-btn rng-violet"
+            >
+                <span class="btn-icon">⚡</span>
+                <span class="btn-text-wrap">
+                    <span class="btn-main-title">FREE VIP TOOLS</span>
+                    <span class="btn-sub-title">100% WORKING ENGINE</span>
+                </span>
+                <span class="btn-arrow">↗</span>
+                <div class="btn-shine"></div>
+            </a>
+
+        </div>
+
+        <!-- Continue -->
+        <button
+            type="button"
+            class="skip-btn"
+            onclick="closeSplash()"
+        >
+            <span>Skip to Injector</span>
+            <span class="arrow">→</span>
+        </button>
+
+        <!-- Timer -->
+        <div class="auto-close-timer">
+            <div
+                class="timer-bar"
+                id="timerBar"
+            ></div>
+        </div>
+
+        <!-- Status -->
+        <div class="system-status">
+            <span class="status-dot"></span>
+            ENGINE READY • RNG ACTIVE
+        </div>
+
+    </div>
+</div>
+
+
+<style>
+
+/* =========================
+   TOOLKIT SPLASH
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap');
+
+#splash-screen,
+#splash-screen * {
+    box-sizing: border-box;
+}
+
+#splash-screen {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    overflow: hidden;
+    z-index: 99999;
+    font-family: 'Outfit', sans-serif;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(124, 58, 237, 0.15), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.08), transparent 40%),
+        linear-gradient(180deg, #080510, #0d0818);
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s;
+}
+
+/* =========================
+   AMBIENT GLOW
+========================= */
+
+.ambient-glow {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    filter: blur(85px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.glow-one {
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.15), transparent 65%);
+    animation: floatGlowOne 8s ease-in-out infinite alternate;
+}
+
+.glow-two {
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.12), transparent 65%);
+    animation: floatGlowTwo 9s ease-in-out infinite alternate;
+}
+
+@keyframes floatGlowOne {
+    0% { transform: translate(-80px, -70px) scale(1); }
+    100% { transform: translate(70px, 60px) scale(1.1); }
+}
+
+@keyframes floatGlowTwo {
+    0% { transform: translate(80px, 70px) scale(0.9); }
+    100% { transform: translate(-60px, -50px) scale(1.05); }
+}
+
+/* =========================
+   BACKGROUND GRID
+========================= */
+
+.ambient-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.08;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(circle, black 0%, transparent 75%);
+}
+
+/* =========================
+   COMPACT GLASS CARD
+========================= */
+
+.splash-box {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 340px;
+    padding: 22px 20px 16px;
+    border-radius: 24px;
+    text-align: center;
+    background: rgba(18, 11, 34, 0.9);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    animation: splashPop 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes splashPop {
+    0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* =========================
+   BADGE
+========================= */
+
+.badge-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    margin-bottom: 12px;
+    border-radius: 20px;
+    color: #fef08a;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    font-size: 8.5px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.badge-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #f59e0b;
+    box-shadow: 0 0 6px #f59e0b;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo-container {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 12px;
+}
+
+.logo-ring {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.ring-one {
+    inset: -4px;
+    border: 1.5px dashed rgba(245, 158, 11, 0.5);
+    animation: rotateRing 12s linear infinite;
+}
+
+.ring-two {
+    inset: -7px;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    animation: rotateRingReverse 8s linear infinite;
+}
+
+@keyframes rotateRing { to { transform: rotate(360deg); } }
+@keyframes rotateRingReverse { to { transform: rotate(-360deg); } }
+
+.splash-icon-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 24px;
+    background: radial-gradient(circle at 35% 25%, rgba(245, 158, 11, 0.2), rgba(15, 10, 28, 0.95) 75%);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+/* =========================
+   TITLE & DESCRIPTION
+========================= */
+
+.splash-box h1 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-weight: 900;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.8px;
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+}
+
+.splash-box p {
+    max-width: 290px;
+    margin: 0 auto 16px;
+    color: var(--text-muted);
+    font-size: 11px;
+    line-height: 16px;
+}
+
+/* =========================
+   BUTTON GROUP
+========================= */
+
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 12px;
+}
+
+.join-btn {
+    position: relative;
+    overflow: hidden;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.join-btn:hover {
+    transform: translateY(-1.5px);
+}
+
+.join-btn:active {
+    transform: scale(0.98);
+}
+
+.rng-green {
+    color: #ffffff;
+    background: linear-gradient(135deg, #7c3aed 0%, #d97706 100%);
+    border: 1px solid rgba(255, 215, 0, 0.35);
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.25);
+}
+
+.rng-violet {
+    color: #ffffff;
+    background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%);
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.2);
+}
+
+.btn-icon {
+    font-size: 15px;
+}
+
+.btn-text-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.btn-main-title {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.btn-sub-title {
+    font-size: 8px;
+    font-weight: 600;
+    opacity: 0.85;
+    letter-spacing: 0.4px;
+}
+
+.btn-arrow {
+    margin-left: auto;
+    font-size: 14px;
+    font-weight: 900;
+    opacity: 0.8;
+}
+
+/* =========================
+   CONTINUE BUTTON
+========================= */
+
+.skip-btn {
+    width: 100%;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px;
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    border-radius: 11px;
+    background: rgba(15, 10, 28, 0.8);
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.skip-btn:hover {
+    background: rgba(124, 58, 237, 0.15);
+    color: #fff;
+    border-color: rgba(245, 158, 11, 0.4);
+}
+
+/* =========================
+   TIMER
+========================= */
+
+.auto-close-timer {
+    width: 100%;
+    height: 2.5px;
+    margin-top: 12px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.timer-bar {
+    width: 100%;
+    height: 100%;
+    transform-origin: left;
+    background: linear-gradient(90deg, #7c3aed, #f59e0b);
+    animation: countdown 10s linear forwards;
+}
+
+@keyframes countdown {
+    from { transform: scaleX(1); }
+    to { transform: scaleX(0); }
+}
+
+/* =========================
+   SYSTEM STATUS
+========================= */
+
+.system-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 8px;
+    color: var(--text-sub);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.status-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold-main);
+}
+
+.fade-out {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+</style>
+
+<script>
+(function(){
+    "use strict";
+    const splash = document.getElementById("splash-screen");
+    let splashClosed = false;
+
+    window.closeSplash = function(){
+        if(splashClosed || !splash) return;
+        splashClosed = true;
+        splash.classList.add("fade-out");
+        setTimeout(function(){
+            if(splash) {
+                splash.style.display = "none";
+            }
+        }, 550);
+    };
+
+    /* Auto close timer */
+    setTimeout(function(){
+        window.closeSplash();
+    }, 10000);
+})();
+</script>
+
+<!-- ================= END TOOLKIT SPLASH ================= -->
+
+</html>
